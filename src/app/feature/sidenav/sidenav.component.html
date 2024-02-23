@@ -1,0 +1,27 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <h4>Menu</h4>
+    <button mat-button (click)="opened = !opened">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container style="background-color: white">
+  <mat-sidenav [(opened)]="opened" mode="side">
+    <mat-list>
+      <mat-list-item>
+        <button mat-raised-button>
+          <a routerLink="/products">Products</a>
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-raised-button><a routerLink="/users">Users</a></button>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+    <!-- <button mat-button (click)="opened=!opened">Toggle</button> -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

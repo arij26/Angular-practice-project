@@ -1,0 +1,59 @@
+<div mat-dialog-title>
+  <!-- <h1>{{ inputData.title }}</h1> -->
+  <h1>Add Product</h1>
+</div>
+<form [formGroup]="form" (submit)="saveAdd()">
+  
+  <div mat-dialog-content class="content">
+    <!-- <div class="row"> -->
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input formControlName="title" matInput type="text"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Price</mat-label>
+        <!-- <mat-select>
+      <mat-option *ngFor="let element of listProducts" value="elem">{{element.price}}</mat-option>
+    </mat-select> -->
+        <input formControlName="price" matInput type="number"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" type="text"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Category</mat-label>
+        <input formControlName="category" matInput type="text"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Image</mat-label>
+        <input formControlName="image" matInput/>
+        <!-- <mat-select>
+      <mat-option *ngFor="let element of listProducts" [value]="element">{{element}}</mat-option>
+    </mat-select> -->
+      </mat-form-field>
+
+      <div formGroupName="rating">
+      <h2>Rating</h2>
+      <mat-form-field appearance="outline">
+        <mat-label>Rate</mat-label>
+        <input matInput formControlName="rate" type="number" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Count</mat-label>
+        <input matInput formControlName="count" type="number" />
+      </mat-form-field>
+    </div>
+    <!-- </div> -->
+  </div>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close (click)="saveAdd()" type="submit">Valider</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>
+      Annuler
+    </button>
+  </mat-dialog-actions>
+</form>
